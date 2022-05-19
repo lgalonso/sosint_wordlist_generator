@@ -32,7 +32,7 @@ def get_words_from_url(url, n):
 
 def create_temp_files():
     for index, url in enumerate(urls):
-        get_words_from_url(url, index)
+        get_words_from_url(url, str(index))
 
 def create_wordlist():
     os.system("sudo bash -c 'cat *_" + target * "_temp.txt >> " + target + "_wordlist.txt'")
