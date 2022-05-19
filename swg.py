@@ -22,13 +22,13 @@ def main():
     print(args.username)
     action = ""
     welcome()
-    while action != ("q" or "exit") :
+    while "q" not in action:
         menu()
         action = input("Choose action (write 'q' or 'exit' to exit): ")
 
         if "1" in action:
             print("This is a test")
-        elif "q" or "exit" in action:
+        elif "q" in action:
             bye()
         else:
             print("\n\nInvalid option.")
