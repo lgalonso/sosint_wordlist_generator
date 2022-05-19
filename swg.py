@@ -55,6 +55,7 @@ def main():
             if target == "None":
                 print("No target specified. Complete action 1.")
             else:
+                print(target)
                 set_target_file_urls(target + ".txt")
 
         if "3" in action:
