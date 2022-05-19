@@ -22,7 +22,7 @@ def main():
     print(args.username)
     action = ""
     welcome()
-    while "quit" not in action:
+    while "q" or "exit" not in action:
         menu()
         action = input("Choose action (write 'q' or 'exit' to exit): ")
 
