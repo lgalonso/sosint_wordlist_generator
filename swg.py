@@ -1,3 +1,4 @@
+from optparse import Option
 import os
 import argparse
 import subprocess
@@ -57,6 +58,7 @@ def main():
             else:
                 print(target)
                 set_target_file_urls(target + ".txt")
+                print(urls)
 
         if "3" in action:
             print("3.")
@@ -64,6 +66,7 @@ def main():
         elif "q" in action:
             bye()
         else:
+            print(action)
             print("\n\nInvalid option.")
 
 main()
