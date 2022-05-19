@@ -22,6 +22,7 @@ def search_target_socials(target_username):
     os.system("sudo sherlock " + target_username + " --timeout 3")
 
 def set_target_file_urls(target_file):
+    global urls
     os.system("sudo sed -i '$ d' " + target_file)
     with open(target_file, 'r') as file:
         urls = file.readlines()
