@@ -10,6 +10,7 @@ target = "None"
 urls = []
 
 def get_target_username():
+    global target
     target_username = args.username
     if target_username == "None":
         target_username = input("\nType the username of the target: ")
