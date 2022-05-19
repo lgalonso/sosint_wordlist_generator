@@ -15,6 +15,16 @@ def get_target_username():
 def get_target_socials(target_username):
     os.system("sudo sherlock " + target_username + " --timeout 3")
 
+def get_target_file_urls(target_file):
+    urls = []
+    os.system("sudo sed -i '$ d' " + target_file)
+    with open("IbaiLlanos.txt", 'r') as file:
+        lines = len(file.readlines())
+        print('Total lines:', lines)
+        for line in file:
+            urls.append(line.strip().split())
+        print(urls)
+
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
@@ -36,6 +46,7 @@ def main():
 
         if "1" in action:
             get_target_socials(get_target_username())
+            get_target_file_urls()
         elif "q" in action:
             bye()
         else:
