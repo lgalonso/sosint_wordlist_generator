@@ -22,7 +22,7 @@ def get_target_file_urls(target_file):
         lines = len(file.readlines())
         print('Total lines:', lines)
         for line in file:
-            urls.append(line.strip().split())
+            urls.append(line.strip())
         print(urls)
 
 def menu():
