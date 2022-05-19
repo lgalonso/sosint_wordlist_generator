@@ -6,10 +6,10 @@ parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a pro
 parser.add_argument('-u','--username', help='This is help but not very helpful right now',required=False)
 args = parser.parse_args()
 
-target_username = args.username
 urls = []
 
 def get_target_username():
+    target_username = args.username
     if target_username == "None":
         target_username = input("\nType the username of the target: ")
     return target_username
