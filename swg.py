@@ -17,8 +17,8 @@ def get_target_socials(target_username):
 
 def get_target_file_urls(target_file):
     urls = []
-    os.system("sudo sed -i '$ d' " + target_file)
-    with open("IbaiLlanos.txt", 'r') as file:
+    ##os.system("sudo sed -i '$ d' " + target_file)
+    with open(target_file, 'r') as file:
         lines = len(file.readlines())
         print('Total lines:', lines)
         for line in file:
@@ -46,7 +46,7 @@ def main():
 
         if "1" in action:
             get_target_socials(get_target_username())
-            get_target_file_urls()
+            get_target_file_urls("IbaiLlanos.txt")
         elif "q" in action:
             bye()
         else:
