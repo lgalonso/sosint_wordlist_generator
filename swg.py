@@ -25,7 +25,8 @@ def set_target_file_urls(target_file):
     global urls
     os.system("sudo sed -i '$ d' " + target_file)
     with open(target_file, 'r') as file:
-        urls = file.readlines()
+        urls = file.read().splitlines()
+    
 
 def menu():
     print("\n\n")
