@@ -28,7 +28,6 @@ def bye():
     print("Bye Bye.")
 
 def main():
-    print(os.__version__, argparse.__version__, subprocess.__version__)
     action = ""
     welcome()
     while "q" not in action:
