@@ -46,8 +46,9 @@ def main():
 
         if "1" in action:
             get_target_socials(get_target_username())
-            get_target_file_urls("IbaiLlanos.txt")
+            
         elif "q" in action:
+            get_target_file_urls("IbaiLlanos.txt")
             bye()
         else:
             print("\n\nInvalid option.")
