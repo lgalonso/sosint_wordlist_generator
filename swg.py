@@ -6,12 +6,14 @@ parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a pro
 parser.add_argument('-u','--username', help='This is help but not very helpful right now',required=False)
 args = parser.parse_args()
 
+target = "None"
 urls = []
 
 def get_target_username():
     target_username = args.username
     if target_username == "None":
         target_username = input("\nType the username of the target: ")
+    target = target_username
     return target_username
 
 def search_target_socials(target_username):
@@ -49,7 +51,10 @@ def main():
 
         if "2" in action:
             print("2.")
-            set_target_file_urls(target_username + ".txt")
+            if target == "None":
+                print("No target specified. Complete action 1.")
+            else:
+                set_target_file_urls(target + ".txt")
 
         if "3" in action:
             print("3.")
