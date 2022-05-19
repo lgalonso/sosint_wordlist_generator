@@ -19,12 +19,12 @@ def bye():
     print("Bye Bye.")
 
 def main():
-    print(args.username)
+    print(os.__version__, argparse.__version__, subprocess.__version__)
     action = ""
     welcome()
     while "q" not in action:
         menu()
-        action = input("Choose action (write 'q' or 'exit' to exit): ")
+        action = input("\nChoose action (write 'q' or 'exit' to exit): ")
 
         if "1" in action:
             print("This is a test")
