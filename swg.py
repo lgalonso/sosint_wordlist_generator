@@ -8,7 +8,7 @@ args = parser.parse_args()
 
 def get_target_username():
     target_username = args.username
-    if target_username is "None":
+    if target_username == "None":
         target_username = input("\nType the username of the target: ")
     return target_username
 
