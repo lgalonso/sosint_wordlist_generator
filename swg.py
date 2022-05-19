@@ -35,7 +35,7 @@ def create_temp_files():
         get_words_from_url(url, str(index))
 
 def create_wordlist():
-    os.system("sudo bash -c 'cat *_" + target * "_temp.txt >> " + target + "_wordlist.txt'")
+    os.system("sudo bash -c 'cat *_temp.txt >> " + target + "_wordlist.txt'")
     os.system("sudo rm *temp*")
 
 def menu():
@@ -43,6 +43,9 @@ def menu():
     print("1- Get target socials. Powered by Sherlock.")
     print("2- Create target wordlist. Powered by CEWL.")
     print("3- Apply dictionary rules. Powered by crunh/hashcat.")
+
+def clear_screen():
+    os.system("clear")
 
 def welcome():
     print("\n\n")
