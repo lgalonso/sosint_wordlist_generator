@@ -6,26 +6,27 @@ parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a pro
 parser.add_argument('-u','--username', help='This is help but not very helpful right now',required=False)
 args = parser.parse_args()
 
+target_username = args.username
+urls = []
+
 def get_target_username():
-    target_username = args.username
     if target_username == "None":
         target_username = input("\nType the username of the target: ")
     return target_username
 
-def get_target_socials(target_username):
+def search_target_socials(target_username):
     os.system("sudo sherlock " + target_username + " --timeout 3")
 
-def get_target_file_urls(target_file):
-    urls = []
-    ##os.system("sudo sed -i '$ d' " + target_file)
+def set_target_file_urls(target_file):
+    os.system("sudo sed -i '$ d' " + target_file)
     with open(target_file, 'r') as file:
         urls = file.readlines()
-        print('Total lines:', len(urls))
-    print(urls)
 
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
+    print("2- Create target dictionary. Powered by CEWL.")
+    print("3- Apply dictionary rules. Powered by crunh/hashcat.")
 
 def welcome():
     print("\n\n")
@@ -43,10 +44,16 @@ def main():
         action = input("\nChoose action (write 'q' or 'exit' to exit): ")
 
         if "1" in action:
-            get_target_socials(get_target_username())
+            search_target_socials(get_target_username())
+
+        if "2" in action:
+            print("2.")
+            set_target_file_urls(target_username + ".txt")
+
+        if "3" in action:
+            print("3.")
             
         elif "q" in action:
-            get_target_file_urls("IbaiLlanos.txt")
             bye()
         else:
             print("\n\nInvalid option.")
