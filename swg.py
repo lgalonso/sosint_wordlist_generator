@@ -19,11 +19,9 @@ def get_target_file_urls(target_file):
     urls = []
     ##os.system("sudo sed -i '$ d' " + target_file)
     with open(target_file, 'r') as file:
-        lines = len(file.readlines())
-        print('Total lines:', lines)
-        for line in file:
-            urls.append(line.strip())
-        print(urls)
+        urls = file.readlines()
+        print('Total lines:', len(urls))
+    print(urls)
 
 def menu():
     print("\n\n")
