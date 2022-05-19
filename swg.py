@@ -45,6 +45,7 @@ def main():
 
         if "1" in action:
             search_target_socials(get_target_username())
+            args.username = "None"
 
         if "2" in action:
             print("2.")
