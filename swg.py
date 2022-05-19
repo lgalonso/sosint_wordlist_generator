@@ -6,9 +6,18 @@ parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a pro
 parser.add_argument('-u','--username', help='This is help but not very helpful right now',required=False)
 args = parser.parse_args()
 
+def get_target_username():
+    target_username = args.username
+    if target_username is "None":
+        target_username = input("\nType the username of the target: ")
+    return target_username
+
+def get_target_socials(target_username):
+    os.system("sudo sherlock " + target_username + " --timeout 3")
+
 def menu():
     print("\n\n")
-    print("1- Test")
+    print("1- Get target socials. Powered by Sherlock.")
 
 def welcome():
     print("\n\n")
@@ -27,7 +36,7 @@ def main():
         action = input("\nChoose action (write 'q' or 'exit' to exit): ")
 
         if "1" in action:
-            print("This is a test")
+            get_target_socials(get_target_username())
         elif "q" in action:
             bye()
         else:
