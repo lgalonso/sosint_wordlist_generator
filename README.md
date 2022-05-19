@@ -6,6 +6,6 @@ The current project uses the following tools:
 - CEWL
 - Sherlock
 - Crunch/Hashcat
-- Python 3.9
+- Python 3.9.2
 
 To install most of these dependencies run the included setup python file "setup.py"
