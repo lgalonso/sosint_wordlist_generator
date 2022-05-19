@@ -1,4 +1,4 @@
-from optparse import Option
+from operator import index
 import os
 import argparse
 import subprocess
@@ -27,11 +27,21 @@ def set_target_file_urls(target_file):
     with open(target_file, 'r') as file:
         urls = file.read().splitlines()
     
+def get_words_from_url(url, n):
+    os.system("sudo cewl -d 2 -m 8 -w " + n + "_" + + target + "_temp.txt " + url)
+
+def create_temp_files():
+    for url in urls:
+        get_words_from_url(url, index)
+
+def create_wordlist():
+    os.system("sudo bash -c 'cat *_" + target * "_temp.txt >> " + target + "_wordlist.txt'")
+    os.system("sudo rm *temp*")
 
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
-    print("2- Create target dictionary. Powered by CEWL.")
+    print("2- Create target wordlist. Powered by CEWL.")
     print("3- Apply dictionary rules. Powered by crunh/hashcat.")
 
 def welcome():
@@ -60,7 +70,7 @@ def main():
             else:
                 print(target)
                 set_target_file_urls(target + ".txt")
-                print(urls)
+                create_temp_files()
 
         if "3" in action:
             print("3.")
