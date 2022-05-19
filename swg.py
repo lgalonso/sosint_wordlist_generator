@@ -19,16 +19,16 @@ def bye():
     print("Bye Bye.")
 
 def main():
-    print(args)
+    print(args.username)
     action = ""
     welcome()
     while "quit" not in action:
         menu()
-        action = input("Choose action (write 'quit' to exit): ")
+        action = input("Choose action (write 'q' or 'exit' to exit): ")
 
         if "1" in action:
             print("This is a test")
-        elif "quit" in action:
+        elif "q" or "exit" in action:
             bye()
         else:
             print("\n\nInvalid option.")
