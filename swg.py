@@ -36,7 +36,12 @@ def create_temp_files():
 
 def create_wordlist():
     os.system("sudo bash -c 'cat *_temp.txt >> " + target + "_wordlist.txt'")
+    clean_wordlist()
+
+def clean_wordlist():
+    command = "sort " + target + "_wordlist.txt | uniq -u | tee " + target + "_wordlist.txt"
     os.system("sudo rm *temp*")
+    os.system("sudo bash -c '" + command + "'")
 
 def menu():
     print("\n\n")
