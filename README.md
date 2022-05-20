@@ -7,5 +7,6 @@ The current project uses the following tools:
 - Sherlock
 - Crunch/Hashcat
 - Python 3.9.2
+- Alive progress
 
 To install most of these dependencies run the included setup python file "setup.py"

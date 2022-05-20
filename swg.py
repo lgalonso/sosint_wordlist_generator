@@ -50,7 +50,7 @@ def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
     print("2- Create target wordlist. Powered by CEWL.")
-    print("3- Apply dictionary rules. Powered by crunh/hashcat.")
+    print("3- Apply dictionary rules. Powered by crunch/hashcat.")
 
 def clear_screen():
     os.system("clear")
@@ -67,7 +67,6 @@ def main():
     action = ""
     welcome()
     while "q" not in action:
-        clear_screen()
         menu()
         action = input("\nChoose action (write 'q' or 'exit' to exit): ")
 
