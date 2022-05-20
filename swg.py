@@ -35,6 +35,7 @@ def create_temp_files():
         print(url)
         get_words_from_url(url, str(index))
         yield
+        print("\n\n")
 
 def create_wordlist():
     os.system("sudo bash -c 'cat *_temp.txt >> " + target + "_wordlist.txt'")
@@ -66,6 +67,7 @@ def main():
     action = ""
     welcome()
     while "q" not in action:
+        clear_screen()
         menu()
         action = input("\nChoose action (write 'q' or 'exit' to exit): ")
 
@@ -83,7 +85,6 @@ def main():
                 with alive_bar(len(urls)) as bar:
                     for i in create_temp_files():
                         bar()
-                        print("\n\n")
                 create_wordlist()
 
         if "3" in action:
