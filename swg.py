@@ -76,7 +76,7 @@ def main():
             args.username = "None"
 
         if "2" in action:
-            print("2.")
+            print("\n\n2.")
             if target == "None":
                 print("No target specified. Complete action 1.")
             else:
@@ -89,7 +89,7 @@ def main():
                 create_wordlist()
 
         if "3" in action:
-            print("3.")
+            print("\n\n3.")
             
         elif "q" in action:
             bye()
