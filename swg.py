@@ -29,9 +29,8 @@ def set_target_file_urls(target_file):
         urls = file.read().splitlines()
     
 def get_words_from_url(url, n):
-    os.system("printf '\n\n\n\n'")
+    os.system("printf '\n\n\n'")
     os.system("sudo cewl -d 2 -m 8 -w " + n + "_" + target + "_temp.txt " + url)
-    os.system("printf '\n\n'")
 
 def create_temp_files():
     for index, url in enumerate(urls):
@@ -67,6 +66,7 @@ def bye():
 
 def main():
     action = ""
+    clear_screen()
     welcome()
     while "q" not in action:
         menu()
@@ -84,7 +84,7 @@ def main():
                 set_target_file_urls(target + ".txt")
                 with alive_bar(len(urls)) as bar:
                     for i in create_temp_files():
-                        time.sleep(0.3)
+                        time.sleep(1)
                         bar()
                 create_wordlist()
 
