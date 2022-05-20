@@ -33,8 +33,9 @@ def get_words_from_url(url, n):
 
 def create_temp_files():
     for index, url in enumerate(urls):
-        print(url)
+        print("\n\n" + url)
         get_words_from_url(url, str(index))
+        print("\n\n")
         yield
 
 def create_wordlist():
