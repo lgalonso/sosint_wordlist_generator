@@ -29,7 +29,7 @@ def set_target_file_urls(target_file):
         urls = file.read().splitlines()
     
 def get_words_from_url(url, n):
-    os.system("printf '\n\n'")
+    os.system("printf '\n\n\n\n'")
     os.system("sudo cewl -d 2 -m 8 -w " + n + "_" + target + "_temp.txt " + url)
     os.system("printf '\n\n'")
 
@@ -81,7 +81,6 @@ def main():
             if target == "None":
                 print("No target specified. Complete action 1.")
             else:
-                print(target)
                 set_target_file_urls(target + ".txt")
                 with alive_bar(len(urls)) as bar:
                     for i in create_temp_files():
