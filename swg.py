@@ -1,5 +1,6 @@
 import os
 import argparse
+from alive_progress import alive_bar
 import subprocess
 
 parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a project to creating social media user based dictionaries.')
@@ -32,6 +33,7 @@ def get_words_from_url(url, n):
 def create_temp_files():
     for index, url in enumerate(urls):
         get_words_from_url(url, str(index))
+        yield
 
 def create_wordlist():
     os.system("sudo bash -c 'cat *_temp.txt >> " + target + "_wordlist.txt'")
@@ -77,11 +79,13 @@ def main():
             else:
                 print(target)
                 set_target_file_urls(target + ".txt")
-                create_temp_files()
+                with alive_bar(len(urls)) as bar:
+                    for i in create_temp_files():
+                        bar()
+                create_wordlist()
 
         if "3" in action:
             print("3.")
-            create_wordlist()
             
         elif "q" in action:
             bye()
