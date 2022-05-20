@@ -81,6 +81,7 @@ def main():
 
         if "3" in action:
             print("3.")
+            create_wordlist()
             
         elif "q" in action:
             bye()
