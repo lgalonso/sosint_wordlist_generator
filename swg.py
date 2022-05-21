@@ -10,6 +10,7 @@ args = parser.parse_args()
 
 target = "None"
 urls = []
+rules = []
 
 def get_target_username():
     global target
@@ -49,11 +50,24 @@ def clean_wordlist():
     os.system("sudo rm *temp*")
     os.system("sudo bash -c '" + command + "'")
 
+def rules_menu():
+    print("\n\n")
+    print("1- Show hashcat rules.")
+    print("2- Select rules.")
+    print("3- Apply dictionary rules.")
+
+def show_rules():
+    global rules
+    for file in os.listdir("/usr/share/hashcat/rules"):
+        if file == "*.rule":
+            print(file + "\n")
+            rules.append(file)
+
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
     print("2- Create target wordlist. Powered by CEWL.")
-    print("3- Apply dictionary rules. Powered by crunch/hashcat.")
+    print("3- Apply dictionary rules. Powered by hashcat.")
 
 def clear_screen():
     os.system("clear")
@@ -93,6 +107,7 @@ def main():
 
         if "3" in action:
             print("\n\n3.")
+            show_rules()
             
         elif "q" in action:
             bye()
