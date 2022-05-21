@@ -72,7 +72,8 @@ def select_rules():
     global selected_rules
     input_rules = input("\nInput rule number or rules number separated by a comma ex: [1,1,1]: ")
     selected_rules = input_rules.split(',')
-    print("Rules added to scope: " + selected_rules)
+    print("Rules added to scope: ")
+    print(selected_rules)
 
 def apply_rules_to_wordlist():
     command = "hashcat --force " + target + "_wordlist.txt"
