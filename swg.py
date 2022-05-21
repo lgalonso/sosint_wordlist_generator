@@ -58,8 +58,8 @@ def rules_menu():
 
 def show_rules():
     global rules
-    for file in os.listdir("/usr/share/hashcat/rules"):
-        if file == "*.rule":
+    for file in os.listdir("/usr/share/hashcat/rules/"):
+        if ".rule" in file:
             print(file + "\n")
             rules.append(file)
 
@@ -101,7 +101,7 @@ def main():
                 set_target_file_urls(target + ".txt")
                 with alive_bar(len(urls)) as bar:
                     for i in create_temp_files():
-                        time.sleep(1)
+                        time.sleep(0.5)
                         bar()
                 create_wordlist()
 
