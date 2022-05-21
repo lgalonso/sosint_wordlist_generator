@@ -82,7 +82,7 @@ def welcome():
 def bye():
     print("\n\n")
     print("Bye Bye.")
-    time.sleep(2)
+    time.sleep(1)
 
 def main():
     action = ""
