@@ -7,22 +7,21 @@ parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a pro
 parser.add_argument('-u','--username', help='This is the targets social username to search and of which to generate wordlist',required=False)
 args = parser.parse_args()
 
-target = "None"
+target = ""
 urls = []
 rules = []
 selected_rules = []
 
-def get_target_username():
+def set_target_username():
     global target
-    target_username = args.username
-    print(target_username)
-    if target_username == "None":
-        target_username = input("\nType the username of the target: ")
-    target = target_username
-    return target_username
+    target = args.username
+    if target == "None":
+        target_username_input = input("\nType the username of the target: ")
+        target = target_username_input
 
-def search_target_socials(target_username):
-    os.system("sudo sherlock " + target_username + " --timeout 3")
+def search_target_socials():
+    print(target)
+    os.system("sudo sherlock " + target + " --timeout 3")
     print("\nDone!\n")
 
 def set_target_file_urls(target_file):
@@ -118,7 +117,8 @@ def main():
 
         if "1" in action:
             clear_x_screen()
-            search_target_socials(get_target_username())
+            set_target_username()
+            search_target_socials()
             args.username = "None"
 
         elif "2" in action:
