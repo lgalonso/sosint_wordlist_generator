@@ -76,7 +76,7 @@ def apply_rules_to_wordlist():
     command = "hashcat --force " + target + "_wordlist.txt"
     rules_to_apply = ""
     for index, rule in enumerate(rules):
-        if select_rules.count(index) > 0:
+        if selected_rules.count(index) > 0:
             rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
     print("sudo " + command + rules_to_apply)
     ##os.system("sudo " + command + rules_to_apply)
