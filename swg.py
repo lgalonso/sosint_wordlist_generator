@@ -22,6 +22,7 @@ def get_target_username():
 
 def search_target_socials(target_username):
     os.system("sudo sherlock " + target_username + " --timeout 3")
+    print("\nDone!\n")
 
 def set_target_file_urls(target_file):
     global urls
@@ -38,6 +39,7 @@ def create_temp_files():
     for index, url in enumerate(urls):
         print("\n\n")
         print("Visiting: " + url)
+        print("If a request is taking too long you can skip it with CTRL +C")
         get_words_from_url(url, str(index))
         yield
 
@@ -51,7 +53,7 @@ def clean_wordlist():
     os.system("sudo bash -c '" + command + "'")
 
 def rules_menu():
-    print("\n\n")
+    print("\n")
     print("1- Show hashcat rules.")
     print("2- Select rules.")
     print("3- Apply dictionary rules.")
@@ -70,7 +72,7 @@ def select_rules():
     global selected_rules
     input_rules = input("\nInput rule number or rules number separated by a comma ex: [1,1,1]: ")
     selected_rules = input_rules.split(',')
-    print(selected_rules)
+    print("Rules added to scope: " + selected_rules)
 
 def apply_rules_to_wordlist():
     command = "hashcat --force " + target + "_wordlist.txt"
@@ -79,7 +81,7 @@ def apply_rules_to_wordlist():
         if selected_rules.count(str(index)) > 0:
             rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
     os.system("printf '\n\n'")
-    print("Applying rules...\n\n")
+    print("Generating new wordlist with rules...\n\n")
     os.system("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
     yield
 
@@ -91,6 +93,9 @@ def menu():
 
 def clear_screen():
     os.system("clear")
+
+def clear_x_screen():
+    os.system("clear -x")
 
 def welcome():
     print("\n\n")
@@ -111,11 +116,12 @@ def main():
         action = input("\nChoose action (write 'q' to exit): ")
 
         if "1" in action:
+            clear_x_screen()
             search_target_socials(get_target_username())
             args.username = "None"
 
         elif "2" in action:
-            print("\n\n2.")
+            clear_x_screen()
             if target == "None":
                 print("No target specified. Complete action 1.")
             else:
@@ -127,6 +133,7 @@ def main():
                 create_wordlist()
 
         elif "3" in action:
+            clear_x_screen()
             rule_action = ""
             while "q" not in rule_action:
                 rules_menu()
@@ -150,7 +157,7 @@ def main():
             bye()
             break
         else:
-            print(action)
-            print("\n\nInvalid option.")
+            clear_x_screen()
+            print("\n\nInvalid option: " + action)
 
 main()
