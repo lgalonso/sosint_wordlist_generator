@@ -59,7 +59,7 @@ def rules_menu():
 
 def set_rules():
     global rules
-    print("\n")
+    os.system("printf '\n'")
     for file in os.listdir("/usr/share/hashcat/rules/"):
         if ".rule" in file:
             rules.append(file)
@@ -78,6 +78,7 @@ def select_rules():
 def apply_rules_to_wordlist():
     command = "hashcat --force " + target + "_wordlist.txt"
     rules_to_apply = ""
+    os.system("printf '\n'")
     for index, rule in enumerate(rules):
         if selected_rules.count(str(index)) > 0:
             rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
