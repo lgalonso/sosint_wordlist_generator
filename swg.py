@@ -64,7 +64,7 @@ def set_rules():
 
 def show_rules():
     for index, rule in enumerate(rules):
-        print(index + ". " + rule + "\n")
+        print(str(index) + ". " + rule + "\n")
 
 def menu():
     print("\n\n")
