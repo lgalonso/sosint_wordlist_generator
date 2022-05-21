@@ -78,10 +78,11 @@ def apply_rules_to_wordlist():
     for index, rule in enumerate(rules):
         if selected_rules.count(str(index)) > 0:
             rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
-    print("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
+    os.system("printf '\n\n'")
+    print("Applying rules...\n\n")
+    os.system("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
     yield
-    ##os.system("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
-    
+
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
@@ -140,7 +141,8 @@ def main():
                     with alive_bar(1) as bar:
                         for i in apply_rules_to_wordlist():
                             bar()
-                
+                    break
+
                 elif 'q' in rule_action:
                     break
                           
