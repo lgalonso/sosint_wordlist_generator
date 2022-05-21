@@ -78,8 +78,9 @@ def apply_rules_to_wordlist():
     for index, rule in enumerate(rules):
         if selected_rules.count(str(index)) > 0:
             rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
-    print("sudo " + command + rules_to_apply)
-    ##os.system("sudo " + command + rules_to_apply)
+    print("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
+    yield
+    ##os.system("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
     
 def menu():
     print("\n\n")
@@ -136,7 +137,9 @@ def main():
                     select_rules()
 
                 elif "3" in rule_action:
-                    apply_rules_to_wordlist()
+                    with alive_bar(1) as bar:
+                        for i in apply_rules_to_wordlist():
+                            bar()
                 
                 elif 'q' in rule_action:
                     break
