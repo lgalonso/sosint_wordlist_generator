@@ -125,6 +125,7 @@ def main():
             while "q" not in rule_action:
                 rules_menu()
                 rule_action = input("\nChoose action (write 'q' to go back): ")
+                print("Selection: " + rule_action)
                 if "1" in action:
                     show_rules()
 
