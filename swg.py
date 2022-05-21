@@ -71,7 +71,7 @@ def select_rules():
     global selected_rules
     nrules = 0
     while nrules < 1 or nrules > 3:
-        nrules = input("\nApply 1, 2 or 3 rules?: ")
+        nrules = int(input("\nApply 1, 2 or 3 rules?: "))
 
     input_rules = input("\nInput rule or rules separated by a comma ex: [1,1,1]: ")
     selected_rules = input_rules.split(',')
