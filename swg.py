@@ -96,7 +96,6 @@ def main():
         if "1" in action:
             search_target_socials(get_target_username())
             args.username = "None"
-            break
 
         if "2" in action:
             print("\n\n2.")
@@ -109,7 +108,6 @@ def main():
                         time.sleep(0.5)
                         bar()
                 create_wordlist()
-            break
 
         if "3" in action:
             rule_action = ""
@@ -118,13 +116,12 @@ def main():
                 rule_action = input("\nChoose action (write 'q' to go back): ")
                 if "1" in action:
                     show_rules()
-                    break
 
-                if "2" in action:
-                    break
+                elif "2" in action:
+                    print("Test 2")
 
-                if "3" in action:
-                    break
+                elif "3" in action:
+                    print("Test 3")
                 
                 elif 'q' in rule_action:
                     break
@@ -135,6 +132,5 @@ def main():
         else:
             print(action)
             print("\n\nInvalid option.")
-            break
 
 main()
