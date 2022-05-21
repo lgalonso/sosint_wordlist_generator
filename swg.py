@@ -72,14 +72,20 @@ def select_rules():
     selected_rules = input_rules.split(',')
     print(selected_rules)
 
-def apply_rules_to_dictionary():
-    os.system("")
+def apply_rules_to_wordlist():
+    command = "hashcat --force " + target + "_wordlist.txt"
+    rules_to_apply = ""
+    for index, rule in enumerate(rules):
+        if select_rules.count(index) > 0:
+            rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
+    print("sudo " + command + rules_to_apply)
+    ##os.system("sudo " + command + rules_to_apply)
     
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
     print("2- Create target wordlist. Powered by CEWL.")
-    print("3- Apply dictionary rules. Powered by hashcat.")
+    print("3- Apply wordlist rules. Powered by hashcat.")
 
 def clear_screen():
     os.system("clear")
@@ -130,7 +136,7 @@ def main():
                     select_rules()
 
                 elif "3" in rule_action:
-                    print("Test 3")
+                    apply_rules_to_wordlist()
                 
                 elif 'q' in rule_action:
                     break
