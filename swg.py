@@ -11,6 +11,7 @@ args = parser.parse_args()
 target = "None"
 urls = []
 rules = []
+selected_rules = []
 
 def get_target_username():
     global target
@@ -67,8 +68,15 @@ def show_rules():
         print(str(index) + ". " + rule + "\n")
 
 def select_rules():
+    global selected_rules
+    nrules = 0
+    while nrules < 1 or nrules > 3:
+        nrules = input("\nApply 1, 2 or 3 rules?: ")
 
-
+    input_rules = input("\nInput rule or rules separated by a comma ex: [1,1,1]: ")
+    selected_rules = input_rules.split(',')
+    print(input_rules + " || " + selected_rules)
+    
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
@@ -121,7 +129,7 @@ def main():
                     show_rules()
 
                 elif "2" in action:
-                    print("Test 2")
+                    select_rules()
 
                 elif "3" in action:
                     print("Test 3")
