@@ -84,7 +84,6 @@ def apply_rules_to_wordlist():
     os.system("printf '\n\n'")
     print("Generating new wordlist with rules...\n\n")
     os.system("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
-    os.system("printf '\n'")
     yield
 
 def menu():
