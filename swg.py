@@ -91,11 +91,12 @@ def main():
     welcome()
     while "q" not in action:
         menu()
-        action = input("\nChoose action (write 'q' or 'exit' to exit): ")
+        action = input("\nChoose action (write 'q' to exit): ")
 
         if "1" in action:
             search_target_socials(get_target_username())
             args.username = "None"
+            break
 
         if "2" in action:
             print("\n\n2.")
@@ -108,15 +109,32 @@ def main():
                         time.sleep(0.5)
                         bar()
                 create_wordlist()
+            break
 
         if "3" in action:
-            print("\n\n3.")
-            show_rules()
-            
+            rule_action = ""
+            while "q" not in rule_action:
+                rules_menu()
+                rule_action = input("\nChoose action (write 'q' to go back): ")
+                if "1" in action:
+                    show_rules()
+                    break
+
+                if "2" in action:
+                    break
+
+                if "3" in action:
+                    break
+                
+                elif 'q' in rule_action:
+                    break
+                          
         elif "q" in action:
             bye()
+            break
         else:
             print(action)
             print("\n\nInvalid option.")
+            break
 
 main()
