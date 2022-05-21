@@ -17,7 +17,7 @@ def get_target_username():
     target_username = args.username
     if "None" in target_username:
         target_username = input("\nType the username of the target: ")
-        target = target_username
+    target = target_username
     return target_username
 
 def search_target_socials(target_username):
