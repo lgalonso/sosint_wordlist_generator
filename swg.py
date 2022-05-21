@@ -125,14 +125,13 @@ def main():
             while "q" not in rule_action:
                 rules_menu()
                 rule_action = input("\nChoose action (write 'q' to go back): ")
-                print("Selection: " + rule_action)
-                if "1" in action:
+                if "1" in rule_action:
                     show_rules()
 
-                elif "2" in action:
+                elif "2" in rule_action:
                     select_rules()
 
-                elif "3" in action:
+                elif "3" in rule_action:
                     print("Test 3")
                 
                 elif 'q' in rule_action:
