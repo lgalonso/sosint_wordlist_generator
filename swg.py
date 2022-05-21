@@ -3,8 +3,8 @@ import argparse
 from alive_progress import alive_bar
 import time
 
-parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a project to creating social media user based dictionaries.')
-parser.add_argument('-u','--username', help='This is help but not very helpful right now',required=False)
+parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a project for creating social media user based dictionaries.')
+parser.add_argument('-u','--username', help='This is the targets social username to search and of which to generate wordlist',required=False)
 args = parser.parse_args()
 
 target = "None"
@@ -15,7 +15,7 @@ selected_rules = []
 def get_target_username():
     global target
     target_username = args.username
-    if target_username == "None":
+    if "None" in target_username:
         target_username = input("\nType the username of the target: ")
     target = target_username
     return target_username
