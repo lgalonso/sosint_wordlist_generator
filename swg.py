@@ -15,7 +15,7 @@ selected_rules = []
 def set_target_username():
     global target
     target = args.username
-    print(target)
+    print(args.username)
     if target == "None":
         target_username_input = input("\nType the username of the target: ")
         target = target_username_input
