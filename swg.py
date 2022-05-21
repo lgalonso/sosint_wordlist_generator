@@ -20,7 +20,6 @@ def set_target_username():
         target = target_username_input
 
 def search_target_socials():
-    print(target)
     os.system("sudo sherlock " + target + " --timeout 3")
     print("\nDone!\n")
 
