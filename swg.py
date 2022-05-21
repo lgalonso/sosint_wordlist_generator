@@ -56,12 +56,15 @@ def rules_menu():
     print("2- Select rules.")
     print("3- Apply dictionary rules.")
 
-def show_rules():
+def set_rules():
     global rules
     for file in os.listdir("/usr/share/hashcat/rules/"):
         if ".rule" in file:
-            print(file + "\n")
             rules.append(file)
+
+def show_rules():
+    for index, rule in enumerate(rules):
+        print(index + ". " + rule + "\n")
 
 def menu():
     print("\n\n")
@@ -83,6 +86,7 @@ def bye():
 
 def main():
     action = ""
+    set_rules()
     clear_screen()
     welcome()
     while "q" not in action:
