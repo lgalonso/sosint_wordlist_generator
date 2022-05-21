@@ -78,13 +78,13 @@ def select_rules():
 def apply_rules_to_wordlist():
     command = "hashcat --force " + target + "_wordlist.txt"
     rules_to_apply = ""
-    os.system("printf '\n'")
     for index, rule in enumerate(rules):
         if selected_rules.count(str(index)) > 0:
             rules_to_apply += " -r /usr/share/hashcat/rules/" + rule
     os.system("printf '\n\n'")
     print("Generating new wordlist with rules...\n\n")
     os.system("sudo bash -c '" + command + rules_to_apply + " --stdout > " + target + "_wordlist_with_rules.txt'")
+    os.system("printf '\n'")
     yield
 
 def menu():
