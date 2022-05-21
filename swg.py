@@ -59,6 +59,7 @@ def rules_menu():
 
 def set_rules():
     global rules
+    print("\n")
     for file in os.listdir("/usr/share/hashcat/rules/"):
         if ".rule" in file:
             rules.append(file)
