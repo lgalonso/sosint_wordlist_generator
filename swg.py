@@ -2,7 +2,6 @@ import os
 import argparse
 from alive_progress import alive_bar
 import time
-import subprocess
 
 parser = argparse.ArgumentParser(description='SOSINT Wordlist Generator is a project to creating social media user based dictionaries.')
 parser.add_argument('-u','--username', help='This is help but not very helpful right now',required=False)
@@ -69,13 +68,12 @@ def show_rules():
 
 def select_rules():
     global selected_rules
-    nrules = 0
-    while nrules < 1 or nrules > 3:
-        nrules = int(input("\nApply 1, 2 or 3 rules?: "))
-
-    input_rules = input("\nInput rule or rules separated by a comma ex: [1,1,1]: ")
+    input_rules = input("\nInput rule number or rules number separated by a comma ex: [1,1,1]: ")
     selected_rules = input_rules.split(',')
-    print(input_rules + " || " + selected_rules)
+    print(selected_rules)
+
+def apply_rules_to_dictionary():
+    os.system("")
     
 def menu():
     print("\n\n")
