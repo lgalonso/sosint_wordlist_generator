@@ -28,7 +28,7 @@ def set_target_file_urls(target_file):
     os.system("sudo sed -i '$ d' " + target_file)
     with open(target_file, 'r') as file:
         urls = file.read().splitlines()
-    
+
 def get_words_from_url(url, n):
     os.system("printf '\n\nUsing: '")
     os.system("sudo cewl -d 2 -m 8 -w " + n + "_" + target + "_temp.txt " + url)
@@ -66,6 +66,9 @@ def show_rules():
     for index, rule in enumerate(rules):
         print(str(index) + ". " + rule + "\n")
 
+def select_rules():
+
+
 def menu():
     print("\n\n")
     print("1- Get target socials. Powered by Sherlock.")
@@ -97,7 +100,7 @@ def main():
             search_target_socials(get_target_username())
             args.username = "None"
 
-        if "2" in action:
+        elif "2" in action:
             print("\n\n2.")
             if target == "None":
                 print("No target specified. Complete action 1.")
@@ -109,7 +112,7 @@ def main():
                         bar()
                 create_wordlist()
 
-        if "3" in action:
+        elif "3" in action:
             rule_action = ""
             while "q" not in rule_action:
                 rules_menu()
