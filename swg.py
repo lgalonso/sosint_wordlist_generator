@@ -138,6 +138,8 @@ def main():
             clear_x_screen()
             if target == "None":
                 print("No target specified. Complete action 1.")
+            elif os.path.exists(target + "_wordlist.txt") != True:
+                print("Target wordlist not found. Complete action 2.")
             else:
                 rule_action = ""
                 while "q" not in rule_action:
