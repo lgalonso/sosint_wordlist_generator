@@ -5,7 +5,7 @@ Repositorio para la herramienta SOSINT Wordlist Generator, desarrollada para la 
 The current project uses the following tools:
 - CEWL
 - Sherlock
-- Crunch/Hashcat
+- Hashcat
 - Python 3.9.2
 - Alive progress
 
