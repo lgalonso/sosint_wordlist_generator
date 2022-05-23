@@ -129,6 +129,8 @@ def main():
             clear_x_screen()
             if target == "None":
                 print("No target specified. Complete action 1.")
+            elif os.path.exists(target + ".txt") != True:
+                print("Target socials file not found. Complete action 1.")
             else:
                 set_target_file_urls(target + ".txt")
                 with alive_bar(len(urls)) as bar:
