@@ -136,24 +136,27 @@ def main():
 
         elif "3" in action:
             clear_x_screen()
-            rule_action = ""
-            while "q" not in rule_action:
-                rules_menu()
-                rule_action = input("\nChoose action (write 'q' to go back): ")
-                if "1" in rule_action:
-                    show_rules()
+            if target == "None":
+                print("No target specified. Complete action 1.")
+            else:
+                rule_action = ""
+                while "q" not in rule_action:
+                    rules_menu()
+                    rule_action = input("\nChoose action (write 'q' to go back): ")
+                    if "1" in rule_action:
+                        show_rules()
 
-                elif "2" in rule_action:
-                    select_rules()
+                    elif "2" in rule_action:
+                        select_rules()
 
-                elif "3" in rule_action:
-                    with alive_bar(1) as bar:
-                        for i in apply_rules_to_wordlist():
-                            bar()
-                    break
+                    elif "3" in rule_action:
+                        with alive_bar(1) as bar:
+                            for i in apply_rules_to_wordlist():
+                                bar()
+                        break
 
-                elif 'q' in rule_action:
-                    break
+                    elif 'q' in rule_action:
+                        break
                           
         elif "q" in action:
             bye()
