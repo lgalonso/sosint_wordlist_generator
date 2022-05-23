@@ -55,7 +55,7 @@ def rules_menu():
     print("\n")
     print("1- Show hashcat rules.")
     print("2- Select rules.")
-    print("3- Apply dictionary rules.")
+    print("3- Apply wordlist rules.")
 
 def set_rules():
     global rules
